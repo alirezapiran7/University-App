@@ -26,7 +26,7 @@ const CommentForm = ({ postId, addComment }) => {
           onChange={e => setText(e.target.value)}
           required
         />
-        <button>Responder <i class="fas fa-reply ml-3" /></button>
+        <button>Responder <i className="fas fa-reply ml-3" /></button>
       </form>
     </div>
   );

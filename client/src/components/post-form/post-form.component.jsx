@@ -42,7 +42,7 @@ const PostForm = ({ addPost }) => {
           required
         />
         
-        <button> Enviar <i class="fas fa-chevron-circle-right"></i></button>
+        <button> Enviar <i className="fas fa-chevron-circle-right"></i></button>
       </form>
     </div>
   );

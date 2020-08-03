@@ -410,7 +410,6 @@ try{
       found = education[i];
     }
   }
-  console.log(found);
   res.json(found);
 } catch (err) {
   console.error(err.message);

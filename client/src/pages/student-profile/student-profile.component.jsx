@@ -17,7 +17,6 @@ const StudentProfile = ({ getProfileById, profile: { profile }, auth, match }) =
         getProfileById(match.params.id);
     }, [getProfileById, match.params.id]);
     
-    console.log(profile);
 
     return (
         <div className='student-profile'>

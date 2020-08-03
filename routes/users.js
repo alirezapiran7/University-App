@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
@@ -10,6 +9,12 @@ const normalize = require('normalize-url');
 const User = require('../models/User');
 const Ufersa = require('../models/Ufersa');
 
+const cloudinary = require('cloudinary').v2;
+cloudinary.config({ 
+    cloud_name: 'dwmb8bm70', 
+    api_key: '868982799389488', 
+    api_secret: '982s6nmSRkfHmU4VkyTJZtqATaM' 
+  });
 // @route    POST api/users
 // @desc     Register user
 // @access   Public
@@ -32,10 +37,10 @@ router.post('/',
         if(!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
-
-        const { name, email, password, ufersaId } = req.body;
-
         try {
+            const { name, email, password, ufersaId } = req.body;
+            const fileStr = req.body.previewSource;
+            const uploadResponse = await cloudinary.uploader.upload(fileStr);
             let user = await User.findOne({ email });
             const matricula = await Ufersa.findOne({ufersaId: ufersaId});
 
@@ -47,16 +52,12 @@ router.post('/',
                 return res.status(400).json({ errors: [{msg: 'Não há madricula cadastrada com esse número'}] });
             }
 
-            const avatar = 'https://scontent.fjdo2-1.fna.fbcdn.net/v/t1.0-9/13466001_949046545207899_8910960548141766749_n.jpg?_nc_cat=106&_nc_sid=09cbfe&_nc_ohc=ncqocp7AIdQAX-q-bRR&_nc_ht=scontent.fjdo2-1.fna&oh=2a06042ba599da0a8ce3f5d5fd08f8db&oe=5F32F09D';
-
-            console.log(matricula);
-
             user = new User({
                 name,
                 email,
                 ufersaId,
                 password,
-                avatar
+                avatar: uploadResponse.secure_url
             });
 
             const salt = await bcrypt.genSalt(15);

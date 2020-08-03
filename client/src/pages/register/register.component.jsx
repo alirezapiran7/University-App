@@ -8,16 +8,17 @@ import { register } from '../../redux/user/user-actions';
 import './register.styles.scss';
 
 const RegisterPage = ({ register, isAuthenticated }) => {
-
+    const [previewSource, setPreviewSource] = useState('');
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         ufersaId: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        fileInputState: ''
     });
 
-    const { name, email, ufersaId, password, confirmPassword } = formData;
+    const { name, email, ufersaId, password, confirmPassword, fileInputState } = formData;
 
     const onChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value });
@@ -28,7 +29,22 @@ const RegisterPage = ({ register, isAuthenticated }) => {
         if (password !== confirmPassword) {
             alert('As senhas não são iguais');
         } else {
-            register({ name, email, ufersaId, password });
+            register({ name, email, ufersaId, password, previewSource });
+        }
+    }
+
+    const handleFileInputChange = e => {
+        const file = e.target.files[0];
+        previewFile(file);
+    }
+
+        //get the file info and set previewSource to be seen as image
+    const previewFile = (file) => {
+        console.log('got here');
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+        setPreviewSource(reader.result);
         }
     }
 
@@ -60,7 +76,21 @@ const RegisterPage = ({ register, isAuthenticated }) => {
                         onChange={onChange}
                         required
                     />
-                </div>
+                </div>  
+                <div>
+                    <input 
+                        type='file'
+                        name='fileInputState'
+                        onChange={handleFileInputChange} 
+                        value={fileInputState} 
+                        className='form-input' 
+                    />
+                </div> 
+                <div>
+                    {previewSource && (
+                        <img src={previewSource} alt='chosen' style={{height: '300px'}} />
+                    )}
+                </div>             
                 <div>
                     <input
                         type="text"

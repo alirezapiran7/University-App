@@ -15,7 +15,6 @@ export const sendMessage = (message, id) => async dispatch => {
       //history.push('/dashboard');
     } catch (err) {
       //const errors = err.response.data.errors;
-      console.log('aconteceu um erro!');
       //if (errors) {
         //errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
       //}
@@ -30,7 +29,6 @@ export const sendMessage = (message, id) => async dispatch => {
   export const getMessages = () => async dispatch => {
     try {
       const res = await api.get('/message');
-      console.log(res);
       dispatch({
         type: GET_MESSAGES,
         payload: res.data
@@ -43,7 +41,6 @@ export const sendMessage = (message, id) => async dispatch => {
   export const getMessage = (id) => async dispatch => {
     try {
       const res = await api.get(`/message/${id}`);
-      console.log(res);
       dispatch({
         type: GET_MESSAGE,
         payload: res.data

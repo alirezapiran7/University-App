@@ -30,6 +30,8 @@ export const loadUser = () => async dispatch => {
 // Register User
 export const register = formData => async dispatch => {
   try {
+    console.log('register action');
+    console.log(formData);
     const res = await api.post('/users', formData);
 
     dispatch({
@@ -47,6 +49,20 @@ export const register = formData => async dispatch => {
     dispatch({
       type: REGISTER_FAIL
     });
+  }
+};
+
+// Add Image
+export const addImage = file => async dispatch => {
+  try {
+    const formData = { file };
+    console.log(formData);
+    console.log('addImage');
+    const res = await api.post('/users/upload', formData);
+    console.log('addImage2');
+    console.log(res);
+  } catch (err) {
+    console.log(err);
   }
 };
 
