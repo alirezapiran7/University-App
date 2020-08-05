@@ -38,10 +38,6 @@ const EditEducation = ({ match, education, getEducation, updateEducation, histor
 
     const { school, degree, fieldofstudy, from, to, current, description } = formData;
 
-    console.log(education);
-    console.log('------------------');
-    console.log(formData);
-
     const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 

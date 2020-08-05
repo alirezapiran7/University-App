@@ -23,8 +23,6 @@ const SendMessagePage = ({ sendMessage, user, match, getProfileById, profile }) 
         setMessage('');
       }
     
-    console.log(profile);
-
     if(profile)
     return (
         <div className='send-message mt-5'>

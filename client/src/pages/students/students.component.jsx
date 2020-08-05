@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import StudentCard from '../../components/student-card/student-card.component';
 import Spinner from '../../components/Spinner/Spinner.component';

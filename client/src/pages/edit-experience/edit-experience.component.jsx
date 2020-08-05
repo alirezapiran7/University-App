@@ -38,10 +38,6 @@ const EditExperience = ({ match, experience, getExperience, updateExperience, hi
 
     const { title, company, location, from, to, current, description } = formData;
 
-    console.log(experience);
-    console.log('------------------');
-    console.log(formData);
-
     const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 

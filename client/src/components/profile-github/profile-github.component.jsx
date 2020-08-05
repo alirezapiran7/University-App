@@ -5,7 +5,6 @@ import { getGithubRepos } from '../../redux/profile/profile-actions';
 import './profile-github.styles.scss';
 
 const ProfileGithub = ({ username, getGithubRepos, repos }) => {
-    console.log(repos);
     useEffect(() => {
         getGithubRepos(username);
       }, [getGithubRepos, username]);

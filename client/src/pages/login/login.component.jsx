@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../../redux/user/user-actions';
 
@@ -35,6 +35,7 @@ const LoginPage = ({ login, isAuthenticated }) => {
                 <form onSubmit={onSubmit}>
                     <div>
                     <input
+                        className='input-form'
                         type="email"
                         placeholder="Email"
                         name="email"
@@ -44,6 +45,7 @@ const LoginPage = ({ login, isAuthenticated }) => {
                     </div>
                     <div>
                         <input
+                            className='input-form'
                             type="password"
                             placeholder="Password"
                             name="password"

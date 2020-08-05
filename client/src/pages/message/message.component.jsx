@@ -7,10 +7,11 @@ import Message from '../../components/message/message.component';
 
 import './message.styles.scss';
 
-const MessagePage = ({ getMessage, messages: { message }, match, sendMessage }) => {
+const MessagePage = ({ getMessage, user, messages: { message }, match, sendMessage }) => {
+
     useEffect(() => {
         getMessage(match.params.id);
-    }, [getMessage, match.params.id, message]);
+    }, [getMessage, match.params.id]);
 
     const [messageForm, setMessageForm] = useState('');
 
@@ -19,13 +20,13 @@ const MessagePage = ({ getMessage, messages: { message }, match, sendMessage }) 
         sendMessage(messageForm, match.params.id);
         setMessageForm('');
       }
-    
+      console.log('hum');
     if(message.message && message.message.length > 0)
     return (
         <div className='message-page'>
             {
-                message.message.map( (message) => (
-                    <Message message={message} />
+                message.message.map( (message, i) => (
+                    <Message key={i} message={message} username={user.user.name}/>
                 ))
             }
             <form className='form' onSubmit={handleSubmit}>
@@ -46,11 +47,12 @@ const MessagePage = ({ getMessage, messages: { message }, match, sendMessage }) 
         </div>
     )
     else
-        return(<div>loading</div>)
+        return(<div>Não tem nenhuma mensagem</div>)
 }
 
 const mapStateToProps = (state) => ({
-    messages: state.messages
+    messages: state.messages,
+    user: state.user
 });
 
 export default connect(mapStateToProps, { getMessage, sendMessage })(MessagePage);

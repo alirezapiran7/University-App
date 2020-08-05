@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PostCard from '../../components/post-card/post-card.component';
 import PostForm from '../../components/post-form/post-form.component';

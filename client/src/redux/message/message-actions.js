@@ -10,7 +10,7 @@ export const sendMessage = (message, id) => async dispatch => {
       const formData = {
         message
       }
-      const msg = await api.post(`/message/${id}`, formData);
+      await api.post(`/message/${id}`, formData);
       //dispatch(setAlert('Education Added', 'success'));
       //history.push('/dashboard');
     } catch (err) {

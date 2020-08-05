@@ -40,7 +40,6 @@ const RegisterPage = ({ register, isAuthenticated }) => {
 
         //get the file info and set previewSource to be seen as image
     const previewFile = (file) => {
-        console.log('got here');
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onloadend = () => {
@@ -53,12 +52,13 @@ const RegisterPage = ({ register, isAuthenticated }) => {
     }
 
     return (
-        <div className='form-container'>
+        <div className='form-container register'>
             <img src="./undraw_community_8nwl.svg" alt=""/>
             <h1>Bem Vindo</h1>
             <form onSubmit={onSubmit}>
                 <div>
-                    <input 
+                    <input
+                        className='input-form'
                         type='text'
                         placeholder='Nome'
                         name='name'
@@ -69,6 +69,7 @@ const RegisterPage = ({ register, isAuthenticated }) => {
                 </div>
                 <div>
                     <input
+                        className='input-form'
                         type="email"
                         placeholder="Email Address"
                         name="email"
@@ -77,22 +78,24 @@ const RegisterPage = ({ register, isAuthenticated }) => {
                         required
                     />
                 </div>  
-                <div>
-                    <input 
+                <div className='form-group mt-3'>
+                    <label>Escolha uma foto de perfil</label>
+                    <input
+                        className='form-control-file'
                         type='file'
                         name='fileInputState'
                         onChange={handleFileInputChange} 
                         value={fileInputState} 
-                        className='form-input' 
                     />
                 </div> 
                 <div>
                     {previewSource && (
-                        <img src={previewSource} alt='chosen' style={{height: '300px'}} />
+                        <img className='img-profile' src={previewSource} alt='chosen' />
                     )}
                 </div>             
                 <div>
                     <input
+                        className='input-form'
                         type="text"
                         placeholder="Número de Matrícula"
                         name="ufersaId"
@@ -104,6 +107,7 @@ const RegisterPage = ({ register, isAuthenticated }) => {
                 </div>
                 <div>
                     <input
+                        className='input-form'
                         type="password"
                         placeholder="Password"
                         name="password"
@@ -115,6 +119,7 @@ const RegisterPage = ({ register, isAuthenticated }) => {
                 </div>
                 <div>
                     <input
+                        className='input-form'
                         type="password"
                         placeholder="Confirm Password"
                         name="confirmPassword"
