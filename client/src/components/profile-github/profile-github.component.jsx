@@ -15,7 +15,7 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
             <div className='row'>
             {
                 repos.map(repo => (
-                    <div className='repo col-lg-5' key={repo.id}>
+                    <div className='repo col-lg-6' key={repo.id}>
                         
                             <h4>
                                 <a href={repo.html_url} target="_blank" rel="noopener noreferrer">

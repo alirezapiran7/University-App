@@ -12,7 +12,7 @@ import { getCurrentProfile, deleteAccount } from '../../redux/profile/profile-ac
 import './dashboard.styles.scss';
 import Spinner from '../../components/Spinner/Spinner.component';
 
-const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: { profile, loading }}) => {
+const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, loading }}) => {
   useEffect(() => {
     getCurrentProfile();
   }, [getCurrentProfile]);
@@ -26,7 +26,7 @@ const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: 
       
       {profile !== null ? (
         <div>
-          <div className='row justify-content-around'>
+          <div className='info row justify-content-around'>
             
             <div className='col-lg-5 text-align'>
               <h4 className="mb-4">Experiências</h4>
@@ -34,7 +34,7 @@ const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: 
                   profile.experience
                     ? 
                       profile.experience.map( exp => (
-                        <Experience key={exp._id} experience={exp} />
+                        <Experience key={exp._id} experience={exp} displayButtons='true' />
                       )) 
                     : 
                       <p>Você ainda não adicionou nenhuma experiência</p>
@@ -47,7 +47,7 @@ const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: 
                 profile.education
                   ?
                     profile.education.map( edu => (
-                      <Education key={edu._id} education={edu} />
+                      <Education key={edu._id} education={edu} displayButtons='true' />
                     ))
                   :
                   <p>Você ainda não adicionou nenhuma educação</p>
@@ -56,11 +56,6 @@ const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: 
 
           </div>
 
-          <div className="my-2">
-            <button className="btn btn-danger mt-5" onClick={() => deleteAccount()}>
-              <i className="fas fa-user-minus" /> Deletar Conta
-            </button>
-          </div>
         </div>
       ) : (
         <div>

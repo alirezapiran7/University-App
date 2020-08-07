@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import moment from 'moment';
@@ -7,7 +7,7 @@ import { deleteEducation } from '../../redux/profile/profile-actions';
 
 import './education.styles.scss';
 
-const Education = ({ education, deleteEducation }) => {
+const Education = ({ education, deleteEducation, displayButtons }) => {
 
   return (
     <div>
@@ -33,18 +33,22 @@ const Education = ({ education, deleteEducation }) => {
             <h5>Descrição</h5>
             {education.description}
           </div>
-            <div className='col-lg-6'>
-              <Link to={`/editar-educacao/${education._id}`} className='edit-button'>
-                <i className="far fa-edit mr-2"></i>
-                Editar
-              </Link>
-            </div>
-            <div className='col-lg-6'>
-              <button className='delete-button' onClick={() => deleteEducation(education._id)}>
-                <i className="far fa-trash-alt mr-2"></i>
-                Excluir
-                </button>
-            </div>
+          {displayButtons ? (
+          <Fragment>
+              <div className='col-lg-6'>
+                <Link to={`/editar-educacao/${education._id}`} className='edit-button'>
+                  <i className="far fa-edit mr-2"></i>
+                  Editar
+                </Link>
+              </div>
+              <div className='col-lg-6'>
+                <button className='delete-button' onClick={() => deleteEducation(education._id)}>
+                  <i className="far fa-trash-alt mr-2"></i>
+                  Excluir
+                  </button>
+              </div>
+            </Fragment>
+            ) : null}
         </div>
       </div>
     </div>

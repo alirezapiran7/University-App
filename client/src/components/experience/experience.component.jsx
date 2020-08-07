@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import moment from 'moment';
@@ -7,7 +7,7 @@ import { deleteExperience } from '../../redux/profile/profile-actions';
 
 import './experience.styles.scss';
 
-const Experience = ({ experience, deleteExperience }) => {
+const Experience = ({ experience, deleteExperience, displayButtons }) => {
 
   return (
     <div>
@@ -33,18 +33,21 @@ const Experience = ({ experience, deleteExperience }) => {
             <h5>Descrição</h5>
             {experience.description}
           </div>
-            <div className='col-lg-6'>
-              <Link to={`/editar-experiencia/${experience._id}`} className='edit-button'>
-                <i className="far fa-edit mr-2"></i>
-                Editar
-              </Link>
-            </div>
-            <div className='col-lg-6'>
-              <button className='delete-button' onClick={() => deleteExperience(experience._id)}>
-                <i className="far fa-trash-alt mr-2"></i>
-                Excluir
-                </button>
-            </div>
+          {displayButtons ? (
+            <Fragment>
+              <div className='col-lg-6'>
+                <Link to={`/editar-experiencia/${experience._id}`} className='edit-button'>
+                  <i className="far fa-edit mr-2"></i>
+                  Editar
+                </Link>
+              </div>
+              <div className='col-lg-6'>
+                <button className='delete-button' onClick={() => deleteExperience(experience._id)}>
+                  <i className="far fa-trash-alt mr-2"></i>
+                  Excluir
+                  </button>
+              </div>
+            </Fragment>) : null}
         </div>
       </div>
     </div>
