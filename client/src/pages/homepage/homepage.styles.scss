@@ -94,5 +94,19 @@
     .text-center {
         text-align: center;
     }
-}
 
+    .row {
+        margin-right: 0;
+    }
+
+    .info {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+        font-weight: 700;
+        h1 {
+            color: #00A8E8;
+        }
+    }
+
+}

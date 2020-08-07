@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 
 import Header from './components/header/header.component';
+import Footer from './components/footer/footer.component';
 
 //Components
 import HomePage from './pages/homepage/homepage.component';
@@ -57,6 +58,7 @@ const App = () => {
         <PrivateRoute exact path="/mensagens" component={MessagesPage} />
         <PrivateRoute exact path="/mensagens/:id" component={MessagePage} />
       </Switch>
+      <Footer />
     </div>
   );
 }

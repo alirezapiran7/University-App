@@ -1,0 +1,26 @@
+.footer {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #00171F;
+    color: #ffffff;
+    .copyright {
+        margin-top: 30px;
+        text-align: center;
+    }
+    a {
+        display: block;
+        color: #ffffff;
+        &:hover {
+            color: #00A8E7;
+        }
+    }
+    span {
+        color: #00A8E7;
+    }
+    p {
+        margin-top: 30px;
+    }
+    .row {
+        margin-right: 0;
+    }
+}

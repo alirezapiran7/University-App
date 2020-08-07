@@ -43,7 +43,7 @@ const HomePage = () => {
 
                         <div className='card col-md-5'>
                             <div className='card-head my-4'>
-                            <i class="far fa-file-alt mr-3 fa-lg"></i><span>Discussões</span>
+                            <i class="far fa-file-alt mr-3 fa-lg"></i><span>Informações</span>
                             </div>
                             <p className='mb-5 text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta consectetur quo minima earum quod quos illum adipisci odit expedita in ipsum perspiciatis a iste blanditiis, ad necessitatibus distinctio at dicta.</p>
                         </div>
@@ -51,9 +51,19 @@ const HomePage = () => {
                 </div>
             </div>
 
-            <div className='footer'>
-                Here is the footer
+            <div className='third-body'>
+                <div className='row justify-content-center'>
+                    <div className='col-mg-3 mx-5 info'>
+                        <h1>400</h1>
+                        <p>Alunos Cadastrados</p>
+                    </div>
+                    <div className='col-mg-3 mx-5 info'>
+                        <h1>700</h1>
+                        <p>Discussões Abertas</p>
+                    </div>
+                </div>
             </div>
+
         </div>
     )
 };
