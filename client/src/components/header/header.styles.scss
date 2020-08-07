@@ -1,18 +1,44 @@
 .nv {
-    justify-content: center;
-    align-items: center;
-    padding: 20px 10%;
-    background-color: #24252a;
+  text-align: center;
   }
   
-  .link {
+.link {
+  margin: 0 30px;
+  i {
+    color: #00A8E8;
+  }
+  div {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     color: #edf0f1;
     text-decoration: none;
-    margin: 0 30px;
-  
-    &:hover{
-      color: #0088a9;
+  }
+  &:hover {
+    i {
+      color: #00c9e8;
+    }
+    div {
+      color: #ffffff;
     }
   }
+  
+}
+.margin-center {
+  margin: auto;
+}
+
+.margin-right {
+  margin-left: 150px;
+}
+
+.guestLinks {
+  margin-left: 25%;
+}
+
+.bg {
+  background-color: #003459;
+}
+
+#nav-button {
+  color: white;
+}
