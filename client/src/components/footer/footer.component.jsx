@@ -12,8 +12,8 @@ const Footer = () => {
                 </div>
                 <div className='col-md-4'>
                     <p className='mt-1'>Links úteis</p>
-                    <a href="#">Contato</a>
-                    <a href="#">Sobre</a>
+                    <a href="/">Contato</a>
+                    <a href="/">Sobre</a>
                 </div>
             </div>
             <div className='copyright'>
