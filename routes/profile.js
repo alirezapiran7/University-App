@@ -271,7 +271,7 @@ router.get('/experience/:experience_id', auth, async(req, res) => {
       }
     }
 
-    console.log(found);
+
     res.json(found);
   } catch (err) {
     console.error(err.message);

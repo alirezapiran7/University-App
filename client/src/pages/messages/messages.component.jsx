@@ -11,6 +11,7 @@ const MessagesPage = ({ getMessages, messages }) => {
     useEffect(() => {
         getMessages();
     }, [getMessages]);
+
     return (
         <div className='messages'>
             <h4 className='mb-4'>Minhas Mensagens</h4>
@@ -23,7 +24,7 @@ const MessagesPage = ({ getMessages, messages }) => {
             }
         </div>
     )
-}
+};
 
 const mapStateToProps = (state) => ({
     messages: state.messages

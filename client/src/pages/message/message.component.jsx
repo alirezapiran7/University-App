@@ -19,8 +19,11 @@ const MessagePage = ({ getMessage, user, messages: { message }, match, sendMessa
         event.preventDefault();
         sendMessage(messageForm, match.params.id);
         setMessageForm('');
+        getMessage(match.params.id);
       }
-      console.log('hum');
+
+      console.log('haa');
+      
     if(message.message && message.message.length > 0)
     return (
         <div className='message-page'>

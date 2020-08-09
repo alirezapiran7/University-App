@@ -14,7 +14,6 @@ import {
 export const loadUser = () => async dispatch => {
   try {
     const res = await api.get('/auth');
-    console.log(res.data);
     dispatch({
       type: USER_LOADED,
       payload: res.data
@@ -30,8 +29,7 @@ export const loadUser = () => async dispatch => {
 // Register User
 export const register = formData => async dispatch => {
   try {
-    console.log('register action');
-    console.log(formData);
+
     const res = await api.post('/users', formData);
 
     dispatch({
@@ -56,11 +54,9 @@ export const register = formData => async dispatch => {
 export const addImage = file => async dispatch => {
   try {
     const formData = { file };
-    console.log(formData);
-    console.log('addImage');
-    const res = await api.post('/users/upload', formData);
-    console.log('addImage2');
-    console.log(res);
+
+    await api.post('/users/upload', formData);
+
   } catch (err) {
     console.log(err);
   }
