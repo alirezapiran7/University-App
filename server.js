@@ -1,11 +1,13 @@
 const express = require('express');
 const connectDB = require('./config/db');
 const path = require('path');
+const enforce = require('express-sslify');
 
 
 const app = express();
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 connectDB();
 
@@ -28,6 +30,10 @@ if (process.env.NODE_ENV === 'production') {
       res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
   }
+
+app.get('/service-worker.js', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js'));
+});
 
 const PORT = process.env.PORT || 5000;
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './homepage.styles.scss';
 
 const HomePage = () => {
@@ -9,8 +10,8 @@ const HomePage = () => {
                     <h1>Uni<span className='text-color'>UFERSA</span></h1>
                     <p className='mt-5'>Seja bem vindo a sua mais nova plataforma universitária, aqui você poderá discutir, tirar dúvidas, mostrar seu portóflio e muito mais.</p>
                     <div className="button_cont mt-5" align="center">
-                        <button className='btn-login'>Já tenho uma conta</button> 
-                        <button className='ml-5 btn-register'>Quero me cadastrar</button>
+                        <Link to='/logar' className='btn-login'>Já tenho uma conta</Link> 
+                        <Link to='/registrar' className='ml-5 btn-register'>Quero me cadastrar</Link>
                     </div>
                     <div className='know-more'>Saiba Mais <p><i class="fas fa-chevron-down"></i></p> </div>
                 </div>     

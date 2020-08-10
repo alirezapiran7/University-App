@@ -16,11 +16,13 @@ const MessagesPage = ({ getMessages, messages }) => {
         <div className='messages'>
             <h4 className='mb-4'>Minhas Mensagens</h4>
             {
-                messages.messages.map( (message, i) => (
+                messages.messages && messages.messages.length > 0 ?
+                (messages.messages.map( (message, i) => (
                     <Link key={i} to={`/mensagens/${message.user}`}>
                         <p className='msg' key={message.user}>{message.msg}</p>
                     </Link>
-                ))
+                )))
+                : <p>Atualmente você não possui nenhuma mensagem</p>
             }
         </div>
     )

@@ -31,26 +31,30 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
             <div className='col-lg-5 text-align'>
               <h4 className="mb-4">Experiências</h4>
                 {
-                  profile.experience
+                  profile.experience && profile.experience.length > 0
                     ? 
                       profile.experience.map( exp => (
                         <Experience key={exp._id} experience={exp} displayButtons='true' />
                       )) 
                     : 
-                      <p>Você ainda não adicionou nenhuma experiência</p>
+                      <p>Você ainda não adicionou nenhuma experiência. Click
+                        <Link to='/adicionar-experiencia'> Aqui</Link> para adicionar.
+                      </p>
                 }
             </div>
 
             <div className='col-lg-5'>
               <h4 className='mb-4'>Educação</h4>
               {
-                profile.education
+                profile.education && profile.education.length > 0
                   ?
                     profile.education.map( edu => (
                       <Education key={edu._id} education={edu} displayButtons='true' />
                     ))
                   :
-                  <p>Você ainda não adicionou nenhuma educação</p>
+                  <p>Você ainda não adicionou nenhuma educação. Click 
+                    <Link to='/adicionar-educacao'> Aqui</Link> para adicionar.
+                  </p>
               }
             </div>
 
