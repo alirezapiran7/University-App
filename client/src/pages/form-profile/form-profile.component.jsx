@@ -52,6 +52,8 @@ const FormProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
     }
   }, [loading, getCurrentProfile, profile]);
 
+  console.log('rendering');
+
   const {
     company,
     website,
@@ -79,6 +81,7 @@ const FormProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
 
   return (
     <div className='main-container'>
+      {console.log('lol')}
       <Link className="btn btn-light my-1 go-back" to="/dashboard">
         &#8678; Voltar
       </Link>
