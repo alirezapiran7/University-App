@@ -1,14 +1,11 @@
 const express = require('express');
 const connectDB = require('./config/db');
-const cors = require('cors');
 const path = require('path');
-const enforce = require('express-sslify');
 
 
 const app = express();
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
-app.use(cors());
 
 connectDB();
 
@@ -22,19 +19,15 @@ app.use('/api/profile', require('./routes/profile'));
 app.use('/api/posts', require('./routes/posts'));
 app.use('/api/ufersa', require('./routes/ufersa'));
 
+// Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
-  app.use(compression);
-  app.use(enforce.HTTPS({ trustProtoHeader: true }));
-  app.use(express.static(path.join(__dirname, 'client/build')));
- 
-  app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  // Set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 }
-
-app.get('/service-worker.js', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js'));
-});
 
 const PORT = process.env.PORT || 5000;
 
