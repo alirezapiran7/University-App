@@ -23,7 +23,6 @@ app.use('/api/posts', require('./routes/posts'));
 app.use('/api/ufersa', require('./routes/ufersa'));
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(compression);
   app.use(enforce.HTTPS({ trustProtoHeader: true }));
   app.use(express.static(path.join(__dirname, 'client/build')));
  
@@ -35,3 +34,7 @@ if (process.env.NODE_ENV === 'production') {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
+app.get('/service-worker.js', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js'));
+});
