@@ -65,7 +65,7 @@ router.post(
   
         jwt.sign(
           payload,
-          config.get('jwtSecret'),
+          'Knowledge1sp#wer',
           { expiresIn: '1hr' },
           (err, token) => {
             if (err) throw err;
