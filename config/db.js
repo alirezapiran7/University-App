@@ -4,7 +4,7 @@ const db = config.get('mongoURI');
 
 const connectDB = async () => {
     try {
-        await mongoose.connect( 'mongodb://ramon:zxc123@uniufersa-shard-00-00.xlmih.mongodb.net:27017,uniufersa-shard-00-01.xlmih.mongodb.net:27017,uniufersa-shard-00-02.xlmih.mongodb.net:27017/test?ssl=true&replicaSet=atlas-ye3cu4-shard-0&authSource=admin&retryWrites=true&w=majority', {
+        await mongoose.connect( db, {
             useNewUrlParser: true,
 			useCreateIndex: true,
 			useFindAndModify: false,

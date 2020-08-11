@@ -10,7 +10,7 @@ module.exports = function(req, res, next) {
     }
 
     try {
-        jwt.verify(token, 'Knowledge1sp#wer', (error, decoded) => {
+        jwt.verify(token, config.get('jwtSecret'), (error, decoded) => {
             if(error){
                 return res.status(401).json({ msg: 'Token is not valid' });
             } else {
