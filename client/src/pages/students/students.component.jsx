@@ -30,11 +30,11 @@ const SearchStudentsPage = ({ getProfiles, profile: { profiles, loading} }) => {
         
 
         <div className="search">
-            <div className='header'>
-                <p className='title'>
+            <div className='header row'>
+                <p className='title col-md-6 col-lg-6'>
                     <i><span>Pesquise</span></i> e <i><span>conecte-se</span></i> com profissionais da área
                     </p>
-                <div className='form'>
+                <div className='form col-md-5 col-md-4'>
                     <form onSubmit={e => { e.preventDefault();}}>
                         <input 
                             type="text"

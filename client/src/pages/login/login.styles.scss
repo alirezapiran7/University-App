@@ -1,8 +1,9 @@
 .form-container {
-	width: 40%;
-	margin:100px auto;
+	width: 90%;
+	max-width: 600px;
+	margin: 100px auto;
 	border: 1px solid #008888;
-	padding: 50px;
+	padding: 20px;
 	text-align: center;
 	border-radius: 15px;
 
@@ -16,7 +17,7 @@
 
 	.input-form {
 		margin-top: 15px;
-		width: 300px;
+		width: 90%;
 		border: 1px solid #008888;
 		border-radius: 5px;
 		padding: 5px 5px;

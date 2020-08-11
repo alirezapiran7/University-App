@@ -12,4 +12,9 @@
     .info {
         padding-bottom: 70px;
     }
+    @media screen and (max-width: 595px) {
+        .dashboard {
+            color: purple;
+        }
+    }
 }

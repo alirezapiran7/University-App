@@ -9,9 +9,13 @@ const HomePage = () => {
                 <div className='wallpaper-body'>
                     <h1>Uni<span className='text-color'>UFERSA</span></h1>
                     <p className='mt-5'>Seja bem vindo a sua mais nova plataforma universitária, aqui você poderá discutir, tirar dúvidas, mostrar seu portóflio e muito mais.</p>
-                    <div className="button_cont mt-5" align="center">
-                        <Link to='/logar' className='btn-login'>Já tenho uma conta</Link> 
-                        <Link to='/registrar' className='ml-5 btn-register'>Quero me cadastrar</Link>
+                    <div className="mt-5 row justify-content-around">
+                        <div className='mt-3'>
+                            <Link to='/logar' className='btn-login mt'>Já tenho uma conta</Link> 
+                        </div>
+                        <div className='mt-3'>
+                            <Link to='/registrar' className='btn-register'>Quero me cadastrar</Link>
+                        </div>
                     </div>
                     <div className='know-more'>Saiba Mais <p><i class="fas fa-chevron-down"></i></p> </div>
                 </div>     

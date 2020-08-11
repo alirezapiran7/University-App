@@ -11,7 +11,7 @@ const Experience = ({ experience, deleteExperience, displayButtons }) => {
 
   return (
     <div>
-      <div className="experiences">
+      <div className="experiences ml-2">
         <div className='row'>
           <div className='col-lg-6'>
             <h5>Empresa</h5>

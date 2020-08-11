@@ -52,7 +52,7 @@ const RegisterPage = ({ register, isAuthenticated }) => {
     }
 
     return (
-        <div className='form-container register'>
+        <div className='register'>
             <img src="./undraw_community_8nwl.svg" alt=""/>
             <h1>Bem Vindo</h1>
             <form onSubmit={onSubmit}>

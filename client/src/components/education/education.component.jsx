@@ -11,7 +11,7 @@ const Education = ({ education, deleteEducation, displayButtons }) => {
 
   return (
     <div>
-      <div className="edu">
+      <div className="edu ml-2">
         <div className='row'>
           <div className='col-lg-6'>
             <h5>Formação</h5>

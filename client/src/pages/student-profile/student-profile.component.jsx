@@ -11,7 +11,7 @@ import { getProfileById } from '../../redux/profile/profile-actions';
 
 import './student-profile.styles.scss';
 
-const StudentProfile = ({ getProfileById, profile: { profile }, auth, match }) => {
+const StudentProfile = ({ getProfileById, profile: { profile }, match }) => {
 
     useEffect(() => {
         getProfileById(match.params.id);
@@ -127,8 +127,7 @@ const StudentProfile = ({ getProfileById, profile: { profile }, auth, match }) =
 }
 
 const mapStateToProps = (state) => ({
-    profile: state.profile,
-    auth: state.auth
+    profile: state.profile
   });
 
 export default connect(mapStateToProps, { getProfileById })(StudentProfile);

@@ -29,7 +29,7 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
           <div className='info row justify-content-around'>
             
             <div className='col-lg-5 text-align'>
-              <h4 className="mb-4">Experiências</h4>
+              <h4 className="my-4">Experiências</h4>
                 {
                   profile.experience && profile.experience.length > 0
                     ? 
@@ -44,7 +44,7 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
             </div>
 
             <div className='col-lg-5'>
-              <h4 className='mb-4'>Educação</h4>
+              <h4 className='my-4'>Educação</h4>
               {
                 profile.education && profile.education.length > 0
                   ?
