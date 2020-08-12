@@ -52,8 +52,6 @@ const FormProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
     }
   }, [loading, getCurrentProfile, profile]);
 
-  console.log('rendering');
-
   const {
     company,
     website,
