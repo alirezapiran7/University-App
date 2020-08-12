@@ -9,7 +9,7 @@ MongoDB, Express, React, Node, Cloudinary, Sass, Redux, Github API, PWA.
 
 ## Installation
 
-To run the application you need to have, Node and MongoDB(local or network service).
+To run the application you need to have Node and MongoDB(local or network service).
 
 You need to run the following command in the main repository and in the client repository.
 
