@@ -5,13 +5,15 @@ import {
   GET_MESSAGE
 } from './message-types';
 
+import { setAlert } from '../alert/alert-actions';
+
 export const sendMessage = (message, id) => async dispatch => {
     try {
       const formData = {
         message
       }
       await api.post(`/message/${id}`, formData);
-      //dispatch(setAlert('Education Added', 'success'));
+      dispatch(setAlert('Mensagem Enviada com Sucesso!', 'success'));
       //history.push('/dashboard');
     } catch (err) {
       //const errors = err.response.data.errors;
@@ -19,10 +21,7 @@ export const sendMessage = (message, id) => async dispatch => {
         //errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
       //}
   
-      //dispatch({
-        //type: PROFILE_ERROR,
-        //payload: { msg: err.response.statusText, status: err.response.status }
-      //});
+      dispatch(setAlert('Não foi possível enviar a mensagem, tente novamente mais tarde!', 'danger'));
     }
   }
 

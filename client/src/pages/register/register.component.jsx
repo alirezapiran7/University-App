@@ -4,10 +4,11 @@ import { Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { register } from '../../redux/user/user-actions';
+import { setAlert } from '../../redux/alert/alert-actions';
 
 import './register.styles.scss';
 
-const RegisterPage = ({ register, isAuthenticated }) => {
+const RegisterPage = ({ register, isAuthenticated, setAlert }) => {
     const [previewSource, setPreviewSource] = useState('');
     const [formData, setFormData] = useState({
         name: '',
@@ -27,7 +28,7 @@ const RegisterPage = ({ register, isAuthenticated }) => {
     const onSubmit = async(e) => {
         e.preventDefault();
         if (password !== confirmPassword) {
-            alert('As senhas não são iguais');
+            setAlert('As senhas não são iguais!', 'danger');
         } else {
             register({ name, email, ufersaId, password, previewSource });
         }
@@ -139,4 +140,4 @@ const mapStateToProps = (state) => ({
     isAuthenticated: state.user.isAuthenticated
 });
 
-export default connect(mapStateToProps, { register } )(RegisterPage);
+export default connect(mapStateToProps, { register, setAlert } )(RegisterPage);

@@ -22,7 +22,7 @@ const Header = ({ auth: { isAuthenticated, loading }, logout, clearProfile }) =>
                 <i className="fas fa-chalkboard-teacher fa-lg"></i>
                 <div>Postagens</div>
             </Link>
-            <a  className='nav-link link' onClick={() => {logout(); clearProfile();}} href='#!'>
+            <a className='nav-link link' onClick={() => {logout(); clearProfile();}} >
                 <i className='fas fa-sign-out-alt fa-lg text-danger' />{' '}
                 <div className='hide-sm'>Sair</div>
             </a>

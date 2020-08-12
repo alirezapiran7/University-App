@@ -1,5 +1,5 @@
 import api from '../../utils/api';
-//import { setAlert } from './alert';
+import { setAlert } from '../alert/alert-actions';
 
 import {
   GET_PROFILE,
@@ -106,16 +106,15 @@ export const createProfile = ( formData, history, edit = false ) => async dispat
       payload: res.data
     });
 
-    //dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success'));
+    dispatch(setAlert(edit ? 'Perfil Atualizado' : 'Perfil Criado', 'success'));
+    
+    history.push('/dashboard');
 
-    if (!edit) {
-      history.push('/dashboard');
-    }
   } catch (err) {
     const errors = err.response.data.errors;
 
     if (errors) {
-      //errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
     }
 
     dispatch({
@@ -135,14 +134,14 @@ export const addExperience = (formData, history) => async dispatch => {
       payload: res.data
     });
 
-    //dispatch(setAlert('Experience Added', 'success'));
+    dispatch(setAlert('Experiência Atualizada com Sucesso!', 'success'));
 
     history.push('/dashboard');
   } catch (err) {
     const errors = err.response.data.errors;
 
     if (errors) {
-      //errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
     }
 
     dispatch({
@@ -163,19 +162,17 @@ export const getExperience = id => async dispatch => {
       payload: res.data
     });
 
-    //dispatch(setAlert('Experience Added', 'success'));
-
   } catch (err) {
     const errors = err.response.data.errors;
 
     if (errors) {
-      //errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
     }
 
-    /*dispatch({
+    dispatch({
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
-    });*/
+    });
   }
 }
 
@@ -190,14 +187,14 @@ export const updateExperience = (formData, id, history) => async dispatch => {
       payload: res.data
     });
 
-    //dispatch(setAlert('Experience Added', 'success'));
+    dispatch(setAlert('Experiência Atualizada com Sucesso!', 'success'));
 
     history.push('/dashboard');
   } catch (err) {
     const errors = err.response.data.errors;
 
     if (errors) {
-      //errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
     }
 
     dispatch({
@@ -217,14 +214,14 @@ export const addEducation = (formData, history) => async dispatch => {
       payload: res.data
     });
 
-    //dispatch(setAlert('Education Added', 'success'));
+    dispatch(setAlert('Educação Adicionada', 'success'));
 
     history.push('/dashboard');
   } catch (err) {
     const errors = err.response.data.errors;
 
     if (errors) {
-      //errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
     }
 
     dispatch({
@@ -245,19 +242,8 @@ export const getEducation = id => async dispatch => {
       payload: res.data
     });
 
-    //dispatch(setAlert('Experience Added', 'success'));
-
   } catch (err) {
-    const errors = err.response.data.errors;
-
-    if (errors) {
-      //errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-    }
-
-    /*dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
-    });*/
+    console.log(err);
   }
 }
 
@@ -272,20 +258,11 @@ export const updateEducation = (formData, id, history) => async dispatch => {
       payload: res.data
     });
 
-    //dispatch(setAlert('Experience Added', 'success'));
+    dispatch(setAlert('Educação Atualizada com Sucesso!', 'success'));
 
     history.push('/dashboard');
   } catch (err) {
-    const errors = err.response.data.errors;
-
-    if (errors) {
-      //errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-    }
-
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
-    });
+    dispatch(setAlert('Ocorreu um erro ao tentar atualizar, tente novamente mais tarde!', 'danger'));
   }
 }
 
@@ -300,12 +277,9 @@ export const deleteExperience = id => async dispatch => {
       payload: res.data
     });
 
-    //dispatch(setAlert('Experience Removed', 'success'));
+    dispatch(setAlert('Experiência Removida com Sucesso!', 'success'));
   } catch (err) {
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
-    });
+    dispatch(setAlert('Você não pode remover!', 'danger'));
   }
 };
 
@@ -319,7 +293,7 @@ export const deleteEducation = id => async dispatch => {
       payload: res.data
     });
 
-    //dispatch(setAlert('Education Removed', 'success'));
+    dispatch(setAlert('Educação Removida com Sucesso!', 'success'));
   } catch (err) {
     dispatch({
       type: PROFILE_ERROR,
@@ -337,7 +311,7 @@ export const deleteAccount = () => async dispatch => {
       dispatch({ type: CLEAR_PROFILE });
       dispatch({ type: ACCOUNT_DELETED });
 
-      //dispatch(setAlert('Your account has been permanently deleted'));
+      dispatch(setAlert('Your account has been permanently deleted'));
     } catch (err) {
       dispatch({
         type: PROFILE_ERROR,

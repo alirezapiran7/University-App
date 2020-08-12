@@ -64,7 +64,7 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
       ) : (
         <div>
           <p>Você ainda não tem um perfil, crie um agora.</p>
-          <Link to="/criar-perfil" className="btn btn-primary my-1">
+          <Link to="/criar-perfil" className="btn btn-primary my-1 mb-5">
             Criar Perfil
           </Link>
         </div>

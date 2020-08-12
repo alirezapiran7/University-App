@@ -7,6 +7,7 @@ import Header from './components/header/header.component';
 import Footer from './components/footer/footer.component';
 import Spinner from './components/Spinner/Spinner.component';
 import ErrorBoundary from './components/error-boundary/error-boundary.component';
+import Alert from './components/alert/alert.component';
 
 import store from './redux/store';
 import { loadUser } from './redux/user/user-actions';
@@ -43,6 +44,7 @@ const App = () => {
   return (
     <div>
       <Header />
+      <Alert />
       <Switch>
         <ErrorBoundary>
           <Suspense fallback={ <Spinner />}>

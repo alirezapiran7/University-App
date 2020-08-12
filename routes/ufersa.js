@@ -14,7 +14,7 @@ router.post('/',
     async (req, res) => {
 
         const errors = validationResult(req);
-        if(!errors.isEmpty()) {
+        if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
 
@@ -23,7 +23,7 @@ router.post('/',
 
             const ifExists = await Ufersa.findOne({ ufersaId: ufersaId });
             if(ifExists){
-                return res.status(400).json('Já há uma matrícula com esse número ou ocorreu um erro inesperado!');
+                return res.status(400).json({ errors: [{ msg: 'Já há uma matrícula com esse número ou ocorreu um erro inesperado!' }] });
             }
 
             const newUfersaId = new Ufersa({
@@ -33,8 +33,8 @@ router.post('/',
 
             return res.json(newUfersaId);
         } catch (error) {
-            console.log(error);
-            return res.status(400).json('Já há uma matrícula com esse número ou ocorreu um erro inesperado!');
+            console.log(error.message);
+            return res.status(500).json({ errors: [{ msg: 'Já há uma matrícula com esse número ou ocorreu um erro inesperado!' }] });
         }
     }
 );
