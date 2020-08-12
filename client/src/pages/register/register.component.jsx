@@ -9,17 +9,17 @@ import { setAlert } from '../../redux/alert/alert-actions';
 import './register.styles.scss';
 
 const RegisterPage = ({ register, isAuthenticated, setAlert }) => {
+    const [file, setFile] = useState('');
     const [previewSource, setPreviewSource] = useState('');
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         ufersaId: '',
         password: '',
-        confirmPassword: '',
-        fileInputState: ''
+        confirmPassword: ''
     });
 
-    const { name, email, ufersaId, password, confirmPassword, fileInputState } = formData;
+    const { name, email, ufersaId, password, confirmPassword } = formData;
 
     const onChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value });
@@ -36,6 +36,7 @@ const RegisterPage = ({ register, isAuthenticated, setAlert }) => {
 
     const handleFileInputChange = e => {
         const file = e.target.files[0];
+        setFile(file);
         previewFile(file);
     }
 
@@ -84,9 +85,9 @@ const RegisterPage = ({ register, isAuthenticated, setAlert }) => {
                     <input
                         className='form-control-file'
                         type='file'
-                        name='fileInputState'
-                        onChange={handleFileInputChange} 
-                        value={fileInputState} 
+                        name='file'
+                        onChange={handleFileInputChange}
+                        required 
                     />
                 </div> 
                 <div>
