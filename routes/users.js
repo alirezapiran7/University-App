@@ -11,9 +11,9 @@ const Ufersa = require('../models/Ufersa');
 
 const cloudinary = require('cloudinary').v2;
 cloudinary.config({ 
-    cloud_name: 'dwmb8bm70', 
-    api_key: '868982799389488', 
-    api_secret: '982s6nmSRkfHmU4VkyTJZtqATaM' 
+    cloud_name: process.env.NAME_CLOUDINARY, 
+    api_key: process.env.API_KEY_CLOUDINARY, 
+    api_secret: process.env.API_SECRET_CLOUDINARY
   });
 // @route    POST api/users
 // @desc     Register user
