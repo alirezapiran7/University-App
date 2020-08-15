@@ -8,7 +8,7 @@ MongoDB, Express, React, Node, Cloudinary, Sass, Redux, Github API, PWA.
 
 ##Visuals
 
-<img src="photos-UniUFERSA/Dashboard.png" />
+<img src="photos-UniUFERSA/Posts.png" />
 
 
 ## Installation
