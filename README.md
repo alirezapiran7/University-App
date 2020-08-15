@@ -8,7 +8,14 @@ MongoDB, Express, React, Node, Cloudinary, Sass, Redux, Github API, PWA.
 
 ##Visuals
 
+<img src="photos-UniUFERSA/homepage.png" width="300" />
+<img src="photos-UniUFERSA/Dashboard.png" width="300" />
+<img src="photos-UniUFERSA/comunidade.png" width="300" />
+<img src="photos-UniUFERSA/Perfil Profile.png" width="300" />
 <img src="photos-UniUFERSA/Posts.png" width="300" />
+<img src="photos-UniUFERSA/Experience Form.png" width="300" />
+<img src="photos-UniUFERSA/Respost-Post.png" width="300" />
+<img src="photos-UniUFERSA/comunidade.png" width="300" />
 
 
 ## Installation
