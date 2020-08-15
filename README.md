@@ -6,6 +6,10 @@ It is a web application built with MERN that tends to connect university student
 
 MongoDB, Express, React, Node, Cloudinary, Sass, Redux, Github API, PWA.
 
+##Visuals
+
+<img src="photos-UniUFERSA/Dashboard.png" />
+
 
 ## Installation
 
